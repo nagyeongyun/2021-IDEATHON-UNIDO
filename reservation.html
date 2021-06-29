@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="unido.css" />
+    <title>세탁기예약</title>
+    <style>
+        a { text-decoration:none;} 
+        #a{
+            padding-left: 5px;
+        }
+        #b{
+            float: right;
+        }
+        #menu{
+            display: inline-block;
+            width: 18px;
+            padding-left: 5px;
+        }
+        img { display: block; margin: 0px auto;}
+        #t{
+            font-size: 17px;
+            position:fixed;
+            width: 900px;
+            left: 29.3%;
+            top : 14%;
+            text-align: center;
+            font-weight: bold;
+        }
+        th{
+
+            font-size: 14px;
+            margin-left: 100px;
+            height: 70px;
+            width: 80px;
+            color:white;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            font-weight: bold;
+
+        }
+        nav{
+            width: 15%;
+            float: left;
+            position: fixed;
+            left: 50px;
+            top : 40%;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        #p{
+            height: 100px;
+            font-size: 11px;
+        }
+        #l{
+            position: fixed;
+            left: 31.7%;
+        }
+    </style>
+    <script>
+        function OnMouseOver(elem){
+            elem.style.color = "orange";
+        }
+        function OnMouseOut(elem){
+            elem.style.color = "black";
+        }
+    </script>
+</head>
+<body>
+    <img src="img/frame/star2.png" width="20%" style="display: inline-block;">
+    <img src="img/frame/UNIDO_1.png" width="60%" height="100" style="display: inline-block; margin-left: 16px;">
+    <img src="img/frame/star1.png" width="14%" style="display: inline-block;">
+    <header>
+        <table id="t" style="position:sticky">
+            <tr>
+                <td><a href="board-자유.html" style="color:black;" onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)"><img id="menu" src="img/frame/2.png">커뮤니티</a></td>
+                <td><a href="board-li.html" style="color:black;" onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)">공지사항</a></td>
+                <td><a href="reservation.html" style="color:black;" onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)">세탁기 예약</a></td>
+                <td><a href="청소분담표.html" style="color:black;" onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)">청소분담표</a></td>
+                <td><a href="integration.html" style="color:black;" onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)">대학생통합</a></td>
+                <td><a href="mypage.html"><img id="b" src="img/frame/mypage.png" width="40px"></a><a href="message.html"><img id="b" src="img/frame/message.png" width="40px"></a></td>
+            </tr>
+        </table>
+    </header>
+    <br>
+    <table id="l" style="position:sticky">
+        <tr>
+            <td><img src="img/frame/ad1.jpg" width="320px" height="110px"></td>
+            <td><img src="img/frame/ad2.jpg" width="335px" height="110px"></td>
+        </tr>
+    </table>
+    <br>
+    <div class="title">
+        <h1>세탁기예약</h1>
+    </div>
+    <section class="board-top">
+        <div style="width: 480px; float: left;">
+        <table class="re-table">
+            <tr>
+                <td style="padding-top: 15px;" ><strong>김덕우님이 이용 가능한 세탁실은 <a style="color: rgb(255, 217, 0);">ㅇㅇ관 ㅇㅇ동 2층</a>입니다.</strong><br>
+                    <img src="img/re.png" style="max-width: 85%; padding: 10px 0px 10px 0px;" ><p><hr style="width: 90%;" ></p></td>
+            </tr>
+            <tr class="re-table2">
+                <td style="padding-left: 25px" ><strong>주의 사항</strong></td>
+            </tr>
+            <tr class="tex1">
+                <td style="font-size: 12px; padding-left: 25px">기계 고장의 원인이 되는 주머니 속 물건을 꺼내주시고, 가동 전후 내부를 확인해 주십시오.<br>세탁기와 건조기의 적정량을 지켜주세요. 일부 세탁물의 경우 건조 후 수축 가능성이 있습니다.</td>
+            </tr>
+            <tr class="tex1">
+                <td style="font-size: 12px; padding:13px 0px 0px 25px">※아래의 제품은 세탁금지 품목입니다.<br><a style="font-size: 9px;">애완동물 관련 용품, 구두, 신발류, 배설물, 기름으로 오염된 제품, 가죽, 마, 견, 모직물, 극세사 등 특수 원단 세탁물</a></td>
+            </tr>
+            <tr class="tex2">
+                <td style="padding:20px 20px;" ><input type="checkbox" name="ch" value="ch">위 사항에 동의합니다.</td>
+            </tr>
+        </table>
+        </div>
+        <div style="float: right">
+        <iframe src="https://calendar.google.com/calendar/embed?height=420&amp;wkst=1&amp;bgcolor=%233F51B5&amp;ctz=Asia%2FSeoul&amp;src=amc0ZDUwYTU4bWxpdDhoZGJudWFjamRicmNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=a28uc291dGhfa29yZWEjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23D81B60&amp;color=%230B8043&amp;showTitle=0&amp;showPrint=0&amp;showTz=0" style="border:solid 1px #777" width="370" height="390" frameborder="0" scrolling="no"></iframe>
+        <table style="border: 1px solid grey; width: 370px; line-height: 10%; margin-bottom: 100px; max-width: 100%;">
+            <tr>
+                <td style="padding: 10px 0px 10px 0px; max-width: 100%;"><a style="font-size: 16px; text-decoration: underline; text-underline-position: under;"><pre>2번 세탁기                1000원  X</pre><br><pre>4번 건조기                1000원  X</pre></a><br><a style="font-size: 16px;"><pre>                 합계 2000원</pre></a>
+                    <br><input type="button" value="결제하기" style="margin:10px 0px 0px 250px; font-size: 12px"></td>
+                </tr>
+        </table>
+        </div>
+    </section>
+</body>
+</html>
+
+

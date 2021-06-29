@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="unido.css" />
+    <title>마이페이지</title>
+    <!-- 내용 스타일 시트 -->
+    <style>
+        @import "http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+
+        /*초기화*/
+        *{margin:0px; padding:0px; }
+        .board-top{
+            margin-right:20%;
+            margin-left:20%;
+        }
+        #Mypage{ text-align: center;margin-top:50px; margin-bottom:30px;}  
+        #Mypage:after {
+            content: "";
+            display: block;
+            width: 159px;
+            border-bottom: 5px solid rgb(94,94,94);
+            margin: 10px auto;
+        }
+        #topMypage{
+            background-color:rgb(44, 62, 80);
+            color:white;
+            display:flex;
+            align-items: center;
+            flex-direction: row;
+            padding:20px;
+            padding-top:40px;
+            padding-bottom:60px;
+        }
+        #topMypage>div>h1{
+            float:left;
+        }
+        #topMypage>div>p>a{ /*청소 담당 날짜*/
+            color:rgb(241,196,15);
+            text-decoration: none;
+        }
+        #myImg{
+            width:120px;
+            margin:10px;
+            margin-right:20px;
+        }
+        #bottomMypage{
+            /* background-color:antiquewhite; */
+            display:flex;
+            flex-direction: row;
+            justify-content: space-around;
+            position:relative;
+            
+        }
+/* 친구 찾기 버튼 */
+        #searchFriend{
+            color:white;
+            background-color: rgb(241,196,15);
+            font-size:22px;
+            font-weight: bold;
+            display:inline-block;
+            width:20%;
+            border-radius: 18px;
+            text-align: center;
+            padding:5px;
+            position:absolute;
+            top:-20px;
+            left:5%;
+        }
+        #searchFriend>i{
+            float:right;
+            margin-right:5px;
+            margin-top:5px;
+            
+        }
+
+/* 상점/벌점, 외박 스타일 시트 */
+        #myscore{
+            margin-left:auto; /*우측으로 이동*/
+            margin-right:30px;
+        }
+        #point{
+            display: inline-block;
+            text-align: center;
+            margin:10px;
+        }
+        #stayout{
+            display: inline-block;
+            text-align: center;
+            margin:10px;
+        }
+        #myscore>a{
+            color:white;
+            text-decoration: none;
+        }
+
+/* 친구 목록 스타일시트 */
+        /*하트모양 체크 박스*/
+        input[type="checkbox"]{
+            height:18px;
+            width:18px;
+            background-color:lightgrey;
+            position: relative;
+            outline:none;
+            transform:rotate(45deg);
+            -webkit-appearance: none;
+        }
+        input[type="checkbox"]:before{
+            position:absolute;
+            content: "";
+            background-color:lightgrey;
+            height:60%;
+            width:100%;
+            top:-57%;
+            border-radius: 75px 75px 0 0;
+        }
+        input[type="checkbox"]:after{
+            position:absolute;
+            content:"";
+            background-color:lightgrey;
+            height:60%;
+            width:100%;
+            transform:rotate(-90deg);
+            border-radius: 75px 75px 0 0;
+            top:20%;
+            right:78%;
+        }
+        input[type="checkbox"]:checked,
+        input:checked[type="checkbox"]:before,
+        input:checked[type="checkbox"]:after{
+            background-color:red;
+        }
+        #friendList{
+            /* background-color:mintcream; */
+            width:33.33%;
+            margin-top:30px;
+            padding:10px;
+        }
+        #friendTitle{
+            font-size : 20px;
+            font-weight:bold;
+            border-bottom: 1px solid #bcbcbc;
+        }
+        #friendTitle i{
+            width:26px;
+            float:right;
+            text-align:center;
+            font-size:26px;
+        }
+        .friend{
+            display:flex;
+            align-items: center;
+            /* justify-content: space-around; */
+            margin:10px;
+            /* background-color: mediumaquamarine; */
+        }
+        .friend>a>img, .friend>img{
+            width:32px;
+        }
+        .profileImg{
+            margin-right:10px;
+        }
+        .friend>a{
+            margin-left:auto;
+            margin-right:20px;
+        }
+
+/* 글 내역, 댓글 내역 스타일시트 */
+        #mylist{
+            /* background-color:olive; */
+            width:33.33%;
+            height:auto;
+            padding:10px;
+        }
+        #mylist>div>p { text-indent:20px; line-height: 25px;}
+        #mylist>div>p>a{color:black;text-decoration:underline}
+        .more{
+            float:right;
+            color:rgb(41,128,185);
+            margin-right:10px;
+        }
+
+/* 세탁기 예약 현황 스타일시트 */
+        #wmReserve{
+            /* background-color:lightblue; */
+            padding:10px;
+            width:33.33%;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #wmReserve>img{
+            width:auto;
+            max-width: 250px;
+            border:1px solid black;
+        }
+        #wmReserve>h3{ margin-right:auto;}
+        #wmBox, #dryBox{
+            display:inline-block;
+            background-color:rgb(44, 62, 80);
+            padding:20px;
+            margin:10px;
+            border-radius:25px;
+            color:white;
+            font-size:23px;
+            font-weight: bold;
+            text-align:center;
+        }
+        #wmReserve>a{
+            text-decoration: none;
+        }
+    </style>
+<!-- 큰 틀 스타일 시트 -->
+    <style>
+        a { text-decoration:none; color:white;} 
+        #a{
+            padding-left: 5px;
+        }
+        #b{
+            float: right;
+        }
+        #menu{
+            display: inline-block;
+            width: 18px;
+            padding-left: 5px;
+        }
+        img { display: block;}
+        #t{
+            font-size: 17px;
+            position:fixed;
+            width: 900px;
+            left: 29.3%;
+            top : 14%;
+            text-align: center;
+            font-weight: bold;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        #p th{
+            padding-top: 20px;
+            padding-bottom: 4px;
+            height: 5px;
+            font-size: 11px;
+        }
+        #l{
+            position: fixed;
+            left: 31.7%;
+        }
+        #p #a5{
+            padding-bottom: 15px;
+        }
+        .title > h1{
+            text-align: center;
+            font-size: 27px;
+        }
+        .title > h1:after{
+            content: "";
+            display: block;
+            width: 10%;
+            border-bottom: 4px solid rgb(223, 223, 223);
+            margin: 5px auto;
+        }
+    </style>
+    <script>
+        var t = 40;
+        function onwheel(e){
+            if(e.wheelDelta < 0){
+                t++;
+                var s = document.getElementById("s");
+                s.style.top = t + "%";
+            }
+            else{
+                t--;
+                var s = document.getElementById("s");
+                s.style.top = t + "%";
+                if(t<=40){
+                    t=40;
+                }
+            }
+        }
+        function color(obj){
+            obj.style.color = "yellow";
+            obj.onmouseout = function(){
+                obj.style.color = "white";
+            }
+        }
+        function OnMouseOver(elem){
+            elem.style.color = "orange";
+        }
+        function OnMouseOut(elem){
+            elem.style.color = "black";
+        }
+    </script>
+</head>
+<body>
+    <img src="img/frame/star2.png" width="20%" style="display: inline-block;">
+    <img src="img/frame/UNIDO_1.png" width="60%" height="100" style="display: inline-block; margin-left: 16px;">
+    <img src="img/frame/star1.png" width="14%" style="display: inline-block;">
+    <header>
+        <table id="t" style="position: sticky;">
+            <tr>
+                <td><a href="board-자유.html" style="color:black;" onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)"><img id="menu" src="img/frame/2.png">커뮤니티</a></td>
+                <td><a href="board-li.html" style="color:black;" onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)">공지사항</a></td>
+                <td><a href="reservation.html" style="color:black;" onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)">세탁기 예약</a></td>
+                <td><a href="청소분담표.html" style="color:black;" onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)">청소분담표</a></td>
+                <td><a href="integration.html" style="color:black;" onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)">대학생통합</a></td>
+                <td><a href="mypage.html"><img id="b" src="img/frame/mypage.png" width="40px"></a><a href=""><img id="b" src="img/money2.png" width="35px"></a></td>
+            </tr>
+        </table>
+    </header>
+    <br>
+    <table id="l" style="position: sticky;">
+        <tr>
+            <td><img src="img/frame/ad1.jpg" width="320px" height="110px"></td>
+            <td><img src="img/frame/ad2.jpg" width="335px" height="110px"></td>
+        </tr>
+    </table>
+    <br>
+    <div class="title">
+        <h1>마이페이지</h1>
+    </div>
+    <section class="board-top">
+        <div id="topMypage">
+            <img id="myImg" src="img/user.png">
+            <div>
+                <h1 style="display:inline-block">김덕우</h1>
+                <p style="display:inline-block">00학과 2020XXXX</p> <br>
+                <h1>00관 00동</h1> <br>
+                <p>청소 담당 날짜는 <a href="청소분담표.html"><span>4월 8일</span></a> 입니다.</p>    <!--청소분담표 페이지로 링크해야 함-->
+            </div>
+            <div id="myscore">
+                <a href="http://www.duksung.ac.kr">
+                    <div id="point" onmouseover="style='color:orange;'" onmouseout="style='color:white'">
+                        <h2>상점/벌점</h2>
+                        <h2>2/0</h2>
+                    </div>
+                    <div id="stayout" onmouseover="style='color:orange;'" onmouseout="style='color:white'">
+                        <h2>외박</h2>
+                        <h2>없음</h2>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <section id="bottomMypage">
+            <div id="searchFriend">
+                <span>친구 찾기</span>
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </div>
+            <div id="friendList">
+                <div id="friendTitle">
+                    친구 목록
+                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </div>
+                
+                <div class="friend">
+                    <img class="profileImg" src= "img/user.png">
+                    <p>김뫄뫄</p>
+                    <a href="message.html"><img src="img/letter.png"></a>
+                    <input type="checkbox">
+                </div>
+                <div class="friend">
+                    <img class="profileImg" src= "img/user.png">
+                    <p>이솨솨</p>
+                    <a href="message.html"><img src="img/letter.png"></a>
+                    <input type="checkbox">
+                </div>
+                <div class="friend">
+                    <img class="profileImg" src= "img/user.png">
+                    <p>김덕새</p>
+                    <a href="message.html"><img src="img/letter.png"></a>
+                    <input type="checkbox">
+                </div>
+            </div>
+            <div id="mylist">
+                <div id="postList">
+                    <h3>글 내역</h3>
+                    <p><a href="">어제 빨래 돌리고 나서 양말 한</a></p>
+                    <p><a href="">어제 빨래 돌리고 나서 양말 한</a></p>
+                    <p><a href="">어제 빨래 돌리고 나서 양말 한</a></p>
+                    <a href="" class="more"><p >더보기</p></a>
+                </div>
+                <br>
+                <div id="commentList"> 
+                    <h3>댓글 내역</h3>
+                    <p><a href="">어제 빨래 돌리고 나서 양말 한</a></p>
+                    <p><a href="">어제 빨래 돌리고 나서 양말 한</a></p>
+                    <p><a href="">어제 빨래 돌리고 나서 양말 한</a></p>
+                    <a href="" class="more"><p >더보기</p></a>
+                </div>
+            </div>
+            
+            <div id="wmReserve">
+                <h3>세탁기 예약 현황</h3>
+                <img src="img/re.png"><br>
+                <a href="reservation.html"> <!--세탁기예약 페이지로 링크해야함-->
+                    <div id="wmBox" onmouseover="style='color:orange;'" onmouseout="style='color:white'">
+                        <p>세탁기</p>
+                        <hr>
+                        <p>3/6</p>
+                    </div>
+                    <div id="dryBox" onmouseover="style='color:orange;'" onmouseout="style='color:white'">
+                        <p>건조기</p>
+                        <hr>
+                        <p>1/3</p>
+                    </div>
+                </a>
+            </div>
+    </section>
+</body>
+</html>

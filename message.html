@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="unido.css" />
+     <title>쪽지함</title>
+    <style>
+        a { text-decoration:none;} 
+        #a{
+            padding-left: 5px;
+        }
+        #b{
+            float: right;
+        }
+        #menu{
+            display: inline-block;
+            width: 18px;
+            padding-left: 5px;
+        }
+        img { display: block; margin: 0px auto;}
+        #t{
+            font-size: 17px;
+            position:fixed;
+            width: 900px;
+            left: 29.3%;
+            top : 14%;
+            text-align: center;
+            font-weight: bold;
+        }
+        th{
+
+            font-size: 14px;
+            margin-left: 100px;
+            height: 70px;
+            width: 80px;
+            color:white;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            font-weight: bold;
+
+        }
+        nav{
+            width: 15%;
+            float: left;
+            position: fixed;
+            left: 50px;
+            top : 40%;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        #p{
+            height: 100px;
+            font-size: 11px;
+        }
+        #l{
+            position: fixed;
+            left: 31.7%;
+        }
+        ul, li{ 
+            list-style:none;
+            text-align:center;
+            padding:0;
+            margin:0;
+        }
+        #mainWrapper{
+            width: 900px;
+            margin: 0 auto; /*가운데 정렬*/
+        }
+        #mainWrapper > ul > li:first-child {
+            text-align: center;
+            height:40px;
+            vertical-align:middle;
+            line-height:45px;
+        }
+        #ulTable {margin-top:10px;}
+        #ulTable > li:first-child > ul > li {
+            border-top: 4px rgb(114, 114, 114) solid;
+            background-color:#c9c9c9;
+            font-weight:bold;
+            text-align:center;
+        }
+        #ulTable > li > ul {
+            clear:both;
+            padding:0px auto;
+            position:relative;
+            min-width:40px;
+        }
+        #ulTable > li > ul > li { 
+            float:left;
+            font-size:10pt;
+            border-bottom:1px solid silver;
+            vertical-align:baseline;
+        }    
+#ulTable > li > ul > li:first-child               {width:15%;} /*No 열 크기*/
+#ulTable > li > ul > li:first-child +li           {width:30%;} /*제목 열 크기*/
+#ulTable > li > ul > li:first-child +li+li        {width:15%;} /*작성일 열 크기*/
+    </style>
+    <script>
+        function OnMouseOver(elem){
+            elem.style.color = "orange";
+        }
+        function OnMouseOut(elem){
+            elem.style.color = "black";
+        }
+    </script>
+</head>
+<body>
+    <img src="img/frame/star2.png" width="20%" style="display: inline-block;">
+    <img src="img/frame/UNIDO_1.png" width="60%" height="100" style="display: inline-block; margin-left: 16px;">
+    <img src="img/frame/star1.png" width="14%" style="display: inline-block;">
+    <header>
+        <table id="t" style="position:sticky">
+            <tr>
+                <td><a href="board-자유.html" style="color:black;" onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)"><img id="menu" src="img/frame/2.png">커뮤니티</a></td>
+                <td><a href="board-li.html" style="color:black;" onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)">공지사항</a></td>
+                <td><a href="reservation.html" style="color:black;" onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)">세탁기 예약</a></td>
+                <td><a href="청소분담표.html" style="color:black;" onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)">청소분담표</a></td>
+                <td><a href="integration.html" style="color:black;" onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)">대학생통합</a></td>
+                <td><a href="mypage.html"><img id="b" src="img/frame/mypage.png" width="40px"></a><a href="message.html"><img id="b" src="img/frame/message.png" width="40px"></a></td>
+            </tr>
+        </table>
+    </header>
+    <br>
+    <table id="l" style="position:sticky">
+        <tr>
+            <td><img src="img/frame/ad1.jpg" width="320px" height="110px"></td>
+            <td><img src="img/frame/ad2.jpg" width="335px" height="110px"></td>
+        </tr>
+    </table>
+    <br>
+    <div class="title">
+        <h1 style="text-align: center;">쪽지함</h1>
+    </div>
+    <section style="padding: 20px 450px 450px 350px;">
+    <div style="width: 480px; float: left;">
+        <tr>
+            <td style="padding-top: 15px;" > 
+                <p>
+                    <button type="button" class="btn btn-warning">쪽지 대화창</button>
+                    <button type="button" class="btn btn-link">쪽지 보관함</button>
+                  </p>
+                  <div id="mainWrapper">
+                    <ul>
+                        <li>
+                            <ul id ="ulTable">
+                                <li>
+                                    <ul>
+                                        <li>상대</li>
+                                        <li>미리보기</li>
+                                        <li>시각</li>
+                                    </ul>
+                                </li>
+                                <!-- 게시물이 출력될 영역 -->
+                                <li>
+                                    <ul>
+                                        <li>김수정</li>
+                                        <li class="left">저희 아이디어톤 자료 언제까지죠?</li>
+                                        <li>17:56</li>
+                                    </ul>
+                                </li>
+            
+                                <li>
+                                    <ul>
+                                        <li>나경윤</li>
+                                        <li class="left">회의에 쓸 자료 카톡으로 보냈어요</li>
+                                        <li>17:55</li>
+                                    </ul>
+                                </li>
+            
+                                <li>
+                                    <ul>
+                                        <li>신정윤</li>
+                                        <li class="left">밥 언제 드실래요?</li>
+                                        <li>16:32</li>
+                                    </ul>
+                                </li>
+            
+                                <li>
+                                    <ul>
+                                        <li>이보연</li>
+                                        <li class="left">잊지말고 회의에서 보기로 해요!</li>
+                                        <li>13:34</li>
+                                    </ul>
+                                <li>   
+                                    
+                                <li>
+                                    <ul>
+                                        <li>권은빈</li>
+                                        <li class="left">그 부분은 따로 구현 안하셔도 돼요!</li>
+                                        <li>12:12</li>
+                                    </ul>
+                                <li>
+                                    
+                                <li>
+                                    <ul>
+                                        <li>강태영</li>
+                                        <li class="left">[멋쟁이사자처럼 9기] 기숙사 해커톤 실시 안</li>
+                                        <li>10:12</li>
+                                    </ul>
+                                <li>
+                                <li>
+                                    <ul>
+                                        <li>사생실</li>
+                                        <li class="left">[전체] 방역 일정 안내</li>
+                                        <li>9:20</li>
+                                    </ul>
+                                <li>
+                                <li>
+                                    <ul>
+                                        <li>&nbsp;</li>
+                                        <li class="left">&nbsp;</li>
+                                        <li>&nbsp;</li>
+                                    </ul>
+                                <li>
+                                <li>
+                                    <ul>
+                                        <li>&nbsp;</li>
+                                        <li class="left">&nbsp;</li>
+                                        <li>&nbsp;</li>
+                                    </ul>
+                                <li>
+                                <li>
+                                    <ul>
+                                        <li>&nbsp;</li>
+                                        <li class="left">&nbsp;</li>
+                                        <li>&nbsp;</li>
+                                    </ul>
+                                <li>
+                                <li>
+                                    <ul>
+                                        <li>&nbsp;</li>
+                                        <li class="left">&nbsp;</li>
+                                        <li>&nbsp;</li>
+                                    </ul>
+                                <li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+        </tr>
+        </div>
+                  </td>
+                  </tr>
+                  </div>
+        <div style="float: right">
+            <table border="2" style="width: 500px; height: 600px; margin-bottom: 100px; max-width: 100%;">
+                <tr style="height: 20px;">
+                    <td style="width: 100%; height: 20px;">
+                    <img style="float: left;" height="20px;" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcM6Rle%2Fbtq8jLgtuzs%2FMuIKgU23ZexJvAnBo5t1W1%2Fimg.png">
+                        <b>김뫄뫄</b>
+                </td>
+                </tr>
+                <tr style="height: 120px;">
+                    <td style="width: 100%; height: 120px; background-repeat: no-repeat;"
+                        background="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FkIQxM%2Fbtq8gnt5YS6%2FlBcxBswuKSD1mcWSHpHNk0%2Fimg.jpg">
+                        <textarea style="margin-top: 500px;" cols="55" rows="5"
+                        placeholder="메시지를 입력하세요"></textarea>
+                        <button type="button" class="btn btn-warning">보내기</button>
+                    </td>
+                </tr>
+                </table>
+            </div>
+    </section>
+</body>
+</html>
