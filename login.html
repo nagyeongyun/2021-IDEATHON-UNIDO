@@ -1,0 +1,175 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <style>
+        /*로그인 아이콘을 위해 추가함*/
+        @import "http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+        /*초기화*/
+        *{margin:0px; padding:0px;}  
+        body{
+            background-color:white;
+            background:url("img/unido_back.png") no-repeat;
+            background-size:cover;
+        }
+        section{
+            position:absolute;
+            left:50%; top:50%;
+            transform:translate(-50%, -50%);
+            text-align: center;
+             }
+        footer{
+            display:inline-block;
+            position:absolute;
+            bottom:0px;
+            width:100%;
+            background-color:rgb(0,0,0);
+            color:rgb(224,224,224)}
+        #footer1{
+            display:inline-block;
+            width:50%;
+            text-align: right;
+            margin-right:10px;
+            font-style:bold;
+        }
+        #footer2{
+            display:inline-block;
+            font-size:small;
+        }
+        form{text-align: center;}
+        label {
+            display:block;  /*새 라인에서 시작*/
+            padding:5px;
+        }
+        #login{
+            display:none; /*처음 화면에서는 로그인창이 보이지 않음*/
+        }
+        input[type="submit"]{
+            background-color:rgb(94,94,94);
+            color:white;
+            padding:3px 10px 5px 10px;
+            border-radius:5px;
+        }
+        #university{
+            margin-top:10px;
+            width:200px;
+            padding:10px;
+        }
+
+        .login-box{
+            width:280px;
+            padding:13px 0;
+        }
+        .textbox{
+            width:100%;
+            overflow: hidden;
+            font-size:20px;
+            padding:8px 0;
+            margin:8px 0;
+            border-bottom: 1px solid #bcbcbc;
+        }
+        .textbox i{
+            width:26px;
+            float:left;
+            text-align:center;
+        }
+        .textbox input{
+            border:none;
+            outline:none;
+            background:none;
+            font-size:18px;
+            width:80%;
+            float:left;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function univSelect(){  //대학교 선택 기능
+            //드롭다운에서 선택된 value값 가져와서 해당 대학 로고 이미지 가져오기
+            var selUniv = document.getElementById("university");
+            var img = document.getElementById("univLogo_img");
+            img.setAttribute("width","200px");
+            img.setAttribute("height","200px");
+            img.src = selUniv.options[selUniv.selectedIndex].value; 
+
+            //아이디, 비밀번호 입력 창 보이게 설정하기
+            var login = document.getElementById("login");
+            login.style.display = "block";
+        }
+        function login(){   //★로그인 기능 (예외 처리 고려할 것)
+            //로그인 실패 -> 안내창이 뜨고, 재로그인 요구
+
+            //로그인 성공 -> main.html로 이동
+            
+        }
+        
+    </script>
+    <section>
+        <div id="unido_logo">
+            <img src="img/unido_logo.jpg"><br>
+        </div>
+
+        <!--학교가 선택되면 로고 이미지가 들어감 (자바스크립트로 구현)-->
+        <img id="univLogo_img" src="" >
+        
+        <div id="dropdown">
+            <form>
+                <label>
+                <select id="university" onchange="univSelect()">
+                    <option value="" selected disabled hidden>==선택하세요==</option>
+                    <option value="img/uni/konkuk.jpg">건국대학교</option>
+                    <option value="img/uni/khu.png">경희대학교</option>
+                    <option value="img/uni/duksung.png">덕성여자대학교</option>
+                    <option value="img/uni/dongguk.png">동국대학교</option>
+                    <option value="img/uni/dongduk.png">동덕여자대학교</option>
+                    <option value="img/uni/myongji.png">명지대학교</option>
+                    <option value="img/uni/pusan.png">부산대학교</option>
+                    <option value="img/uni/sogang.png">서강대학교</option>
+                    <option value="img/uni/sungkyun.png">성균관대학교</option>
+                    <option value="img/uni/sungshin.png">성신여자대학교</option>
+                    <option value="img/uni/sookmyung.png">숙명여자대학교</option>
+                    <option value="img/uni/ajou.png">아주대학교</option>
+                    <option value="img/uni/yonsei.png">연세대학교</option>
+                    <option value="img/uni/ewha.png">이화여자대학교</option>
+                    <option value="img/uni/cau.png">중앙대학교</option>
+                    <option value="img/uni/hongik.png">홍익대학교</option>
+
+                </select>
+                </label>
+            </form>
+        </div>
+        
+        <!--★학교가 선택되면 보이는 로그인 부분-->
+        <form id="login" action="firstpage.html"> <!--로그인 버튼을 누르면 첫 페이지로 이동해야 하나, 현재는 대통합페이지로 연결 시켜 놓음-->
+            <div class="login-box">
+                <div class="textbox">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <input type="text" placeholder="학번/이메일주소" name="" value="">
+                </div>
+                
+                <div class="textbox">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    <input type="password" placeholder="비밀번호" name="" value="">
+                </div>
+                <input type="submit" value="로그인">
+            </div>
+        </form>
+    </section>
+    <footer>
+        <div id="footer1">
+            U/N/I/D/O<br><br>
+            전국 대학 기숙사 통합 커뮤니티!
+        </div>
+        <div id="footer2">
+            Like Lion in Duksung team UNIDO 2021<br>
+            9th Kim sujung Na gyeong-yoon Sin jung-yoon Lee boyeon<br>
+            All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
